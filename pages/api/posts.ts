@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { NextApiHandler } from 'next';
-import matter = require('gray-matter');
+import matter from 'gray-matter';
 import { getPostsNameList } from '../../lib/get-posts-list';
 
 const getPostsList:NextApiHandler = (request, response) => {

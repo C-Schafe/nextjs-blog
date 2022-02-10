@@ -1,25 +1,28 @@
-import React, { useEffect, useState }  from "react";
-import axios from 'axios';
+import React from "react";
+import { UAParser } from 'ua-parser-js';
 
-import { usePosts } from '../../hooks/testUsePosts';
+import { GetServerSideProps, NextPage } from "next";
 
-type Post = {
-  title: string;
-  date: string;
-  content: string;
+type Props = {
+  browser: string;
 }
 
-export default function PostsList() {
-  const { isLoading, postsList} = usePosts();
+const PostsList:NextPage<Props> = (props) => {
   return (
     <div>
-      <h1>this is posts list</h1>
-      <div>{isLoading && 'Loading...'}</div>
-      {!isLoading && postsList && postsList.map((post:Post) => {
-        return (
-          <div key={post.date}>{post.title}</div>
-        );
-      })}
+      Your browser is:{props.browser}
     </div>
   )
+}
+
+export default PostsList;
+
+export const getServerSideProps:GetServerSideProps = async(context) => {
+  const ua = context.req.headers['user-agent'];
+  const browserName = UAParser(ua).browser.name;
+  return {
+    props: {
+      browser: browserName,
+    }
+  }
 }
