@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import axios from 'axios';
 import Link from 'next/link';
-import { getPostsNameList } from '../../lib/get-posts-list';
+import { getPostsNameList } from '../../lib/posts';
 
 import { usePosts } from '../../hooks/testUsePosts';
 import { GetStaticProps, NextPage } from "next";

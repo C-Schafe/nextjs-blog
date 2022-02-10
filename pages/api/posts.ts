@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import { NextApiHandler } from 'next';
 import matter from 'gray-matter';
-import { getPostsNameList } from '../../lib/get-posts-list';
+import { getPostsNameList } from '../../lib/posts';
 
 const getPostsList:NextApiHandler = (request, response) => {
   const filenames = getPostsNameList();

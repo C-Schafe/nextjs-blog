@@ -1,28 +1,44 @@
-import React from "react";
-import { UAParser } from 'ua-parser-js';
+import React, { useEffect, useState }  from "react";
+import axios from 'axios';
+import Link from 'next/link';
+import { getPostsNameList, getPostContent } from '../../lib/posts';
 
-import { GetServerSideProps, NextPage } from "next";
+import { usePosts } from '../../hooks/testUsePosts';
+import { GetStaticProps, NextPage } from "next";
+
+type Post = {
+  title: string;
+  date: string;
+  content: string;
+}
 
 type Props = {
-  browser: string;
+  postsNameList: string[];
 }
 
 const PostsList:NextPage<Props> = (props) => {
+  const postsNameList = props.postsNameList;
   return (
     <div>
-      Your browser is:{props.browser}
+      <h1>this is posts list</h1>
+      {postsNameList && postsNameList.map((postName) => {
+        return (
+          <Link key={postName} href={`/posts/${postName.replace(/.md$/, '')}`}>
+            <a><div>{postName.replace(/.md$/, '')}</div></a>
+          </Link>
+        );
+      })}
     </div>
   )
 }
 
 export default PostsList;
 
-export const getServerSideProps:GetServerSideProps = async(context) => {
-  const ua = context.req.headers['user-agent'];
-  const browserName = UAParser(ua).browser.name;
+export const getStaticProps:GetStaticProps = (staticContext) => {
+  const postsNameList = getPostsNameList();
   return {
     props: {
-      browser: browserName,
+      postsNameList,
     }
   }
 }
