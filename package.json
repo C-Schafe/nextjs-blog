@@ -9,7 +9,8 @@
     "tb": "babel -w ./src --out-dir dist --extensions .ts,.tsx",
     "typeorm:create": "typeorm migration:create -n PostCreate",
     "migration:run": "typeorm migration:run",
-    "migration:revert": "typeorm migration:revert"
+    "migration:revert": "typeorm migration:revert",
+    "entiry:create": "typeorm entity:create -n Post"
   },
   "dependencies": {
     "@babel/cli": "^7.17.0",
