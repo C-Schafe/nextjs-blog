@@ -27,6 +27,18 @@ CREATE DATABASE blog_development ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYP
 // display tables
 \dt
 ```
+
+## typeorm命令
+```
+// 创建migration
+typeorm migration:create -n <migration name>
+// 运行migration
+typeorm migration:run
+// migration revert
+typeorm migration:revert
+// typeorm创建entity
+typeorm entity:create -n <entity name>
+```
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

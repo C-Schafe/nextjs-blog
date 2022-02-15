@@ -2,15 +2,15 @@
   "name": "nextjs-blog",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"babel -w ./src --out-dir dist --extensions .ts,.tsx\"",
+    "dev": "concurrently \"next dev\" \"rm -rf dist\" \"babel -w ./src --out-dir dist --extensions .ts,.tsx\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tb": "babel -w ./src --out-dir dist --extensions .ts,.tsx",
-    "typeorm:create": "typeorm migration:create -n PostCreate",
-    "migration:run": "typeorm migration:run",
-    "migration:revert": "typeorm migration:revert",
-    "entiry:create": "typeorm entity:create -n Post"
+    "tb": "babel ./src --out-dir dist --extensions .ts,.tsx",
+    "m:create": "typeorm migration:create -n",
+    "m:run": "typeorm migration:run",
+    "m:revert": "typeorm migration:revert",
+    "e:create": "typeorm entity:create -n"
   },
   "dependencies": {
     "@babel/cli": "^7.17.0",
