@@ -14,7 +14,7 @@ export class CreatePosts1644920859329 implements MigrationInterface {
           generationStrategy: 'increment',
         },
         {
-          name: 'author_id',
+          name: 'authorId',
           type: 'int',
         },
         {

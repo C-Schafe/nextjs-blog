@@ -18,11 +18,11 @@ export class CreateComments1644920865945 implements MigrationInterface {
           type: 'text',
         },
         {
-          name: 'user_id',
+          name: 'userId',
           type: 'int',
         },
         {
-          name: 'post_id',
+          name: 'postId',
           type: 'int',
         },
       ]
