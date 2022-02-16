@@ -25,6 +25,18 @@ export class CreatePosts1644920859329 implements MigrationInterface {
           name: 'content',
           type: 'text',
         },
+        {
+          name: 'updatedAt',
+          isNullable: false,
+          type: 'timestamp',
+          default: 'now()'
+        },
+        {
+          name: 'createdAt',
+          isNullable: false,
+          type: 'timestamp',
+          default: 'now()'
+        }
       ]
     }))
   }

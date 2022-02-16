@@ -21,6 +21,18 @@ export class CreateUsers1644920849587 implements MigrationInterface {
         {
           name: 'passwordDigest',
           type: 'varchar',
+        },
+        {
+          name: 'updatedAt',
+          isNullable: false,
+          type: 'timestamp',
+          default: 'now()'
+        },
+        {
+          name: 'createdAt',
+          isNullable: false,
+          type: 'timestamp',
+          default: 'now()'
         }
       ]
     }))
