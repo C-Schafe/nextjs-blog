@@ -14,8 +14,8 @@ export class Post {
   author: User
   @OneToMany(() => Comment, comment => comment.post)
   comments: Comment[]
-  @CreateDateColumn('time')
-  createdAt: number
-  @UpdateDateColumn('time')
-  updatedAt: number
+  @CreateDateColumn()
+  createdAt: Date
+  @UpdateDateColumn()
+  updatedAt: Date
 }
