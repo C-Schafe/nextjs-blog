@@ -1,49 +1,37 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Link from 'next/link';
 import { stringify } from "querystring";
+import { getDatabaseConnection } from "../../lib/getDatabaseConnection";
 import { getPostsNameList, getPostContent } from '../../lib/posts';
+import { Post } from "../../src/entity/Post";
 
 type Props = {
-  title: string;
-  date: string;
-  content: string;
+  post: Post
 }
 
 const PostPage: NextPage<Props> = (props) => {
+  const { post } = props;
   return (
     <div>
-      <h1>{props.title}</h1>
-      <p>{props.date}</p>
-      <article>{props.content}</article>
+      <h1>{post.title}</h1>
+      <hr />
+      <article>{post.content}</article>
+      <hr />
+      <Link href={'/'}>
+        <a>Homepage</a>
+      </Link>
     </div>
   )
 }
 
 export default PostPage;
 
-export const getStaticPaths: GetStaticPaths = async (staticPathsContext) => {
-  const namesList = getPostsNameList().map((fileName) => {
-    return fileName.replace(/.md$/g, '');
-  });
-  const paths = namesList.map((name) => {
-    return {
-      params: { id: name }
-    };
-  });
-  return {
-    paths,
-    fallback: false // false or 'blocking'
-  };
-}
-
-export const getStaticProps: GetStaticProps = (context) => {
-  const postName = context.params && context.params.id;
-  const postContent = getPostContent(postName as string);
-  const { title, date, content } = postContent;
+export const getServerSideProps:GetServerSideProps = async(context) => {
+  const connection = await getDatabaseConnection();
+  const post = await connection.manager.findOne(Post, context.params.id as string);
   return {
     props: {
-      title,
-      date,
-      content,
+      post: JSON.parse(JSON.stringify(post))
     }
-  };
+  }
 }
