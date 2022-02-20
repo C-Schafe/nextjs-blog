@@ -13,13 +13,13 @@ const create = () => {
   });
 };
 
-const connection = (() => {
+const connection = (async() => {
   const manager = getConnectionManager();
   if (manager.has('default')) {
-    return manager.get('default');
-  } else {
-    return create();
+    const defaultConnection = manager.get('default');
+    await defaultConnection.close();
   }
+  return create();
 })()
 
 export const getDatabaseConnection = () => {
