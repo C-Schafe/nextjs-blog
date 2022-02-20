@@ -1,30 +1,26 @@
+import "reflect-metadata";
 import React, { useEffect, useState }  from "react";
-import axios from 'axios';
 import Link from 'next/link';
-import { getPostsNameList, getPostContent } from '../../lib/posts';
 
 import { usePosts } from '../../hooks/testUsePosts';
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
+import { getDatabaseConnection } from '../../lib/getDatabaseConnection';
+import { Post } from "../../src/entity/Post";
 
-type Post = {
-  title: string;
-  date: string;
-  content: string;
-}
 
 type Props = {
-  postsNameList: string[];
+  postsList: Post[];
 }
 
 const PostsList:NextPage<Props> = (props) => {
-  const postsNameList = props.postsNameList;
+  const { postsList } = props;
   return (
     <div>
-      <h1>this is posts list</h1>
-      {postsNameList && postsNameList.map((postName) => {
+      <h1>this is posts list:</h1>
+      {postsList.length > 0 && postsList.map((post) => {
         return (
-          <Link key={postName} href={`/posts/${postName.replace(/.md$/, '')}`}>
-            <a><div>{postName.replace(/.md$/, '')}</div></a>
+          <Link key={post.id} href={`/posts/${post.id}`}>
+            <a><div>{post.title}</div></a>
           </Link>
         );
       })}
@@ -34,11 +30,12 @@ const PostsList:NextPage<Props> = (props) => {
 
 export default PostsList;
 
-export const getStaticProps:GetStaticProps = (staticContext) => {
-  const postsNameList = getPostsNameList();
+export const getServerSideProps:GetServerSideProps = async(context) => {
+  const connection = await getDatabaseConnection();
+  const postsList = await connection.manager.find(Post);
   return {
     props: {
-      postsNameList,
+      postsList: JSON.parse(JSON.stringify(postsList)),
     }
   }
 }

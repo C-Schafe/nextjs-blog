@@ -17,6 +17,11 @@ createConnection().then(async connection => {
     post.content = 'test post content';
     post.author = user;
     await manager.save(post);
+    const post1 = new Post();
+    post1.title = 'test post title2';
+    post1.content = 'test post content2';
+    post1.author = user;
+    await manager.save(post1);
     console.log(post.id);
     const comment = new Comment();
     comment.content = 'test comment content';
