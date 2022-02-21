@@ -36,7 +36,7 @@ const SignUpPage:NextPage<Props> = (props) => {
       <h1>注册页面</h1>
       <form onSubmit={onSubmit}>
         <div>
-          {errors.username.length > 0 && <div>{errors.username}</div>}
+          {errors.username?.length > 0 && <div>{errors.username}</div>}
           <label htmlFor="username">账号</label>
           <input type="text" name="username" onChange={(e) => {
             setFormData({
@@ -46,7 +46,7 @@ const SignUpPage:NextPage<Props> = (props) => {
           }}/>
         </div>
         <div>
-        {errors.password.length > 0 && <div>{errors.password}</div>}
+        {errors.password?.length > 0 && <div>{errors.password}</div>}
           <label htmlFor="password">密码</label>
           <input type="password" name="password" onChange={(e) => {
             setFormData({
@@ -56,7 +56,7 @@ const SignUpPage:NextPage<Props> = (props) => {
           }}/>
         </div>
         <div>
-        {errors.confirmedPassword.length > 0 && <div>{errors.confirmedPassword}</div>}
+        {errors.confirmedPassword?.length > 0 && <div>{errors.confirmedPassword}</div>}
           <label htmlFor="confirmedPassword">确认密码</label>
           <input type="password" name="confirmedPassword" onChange={(e) => {
             setFormData({
