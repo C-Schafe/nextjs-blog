@@ -3,7 +3,6 @@ import React, { useCallback, useState } from "react";
 import axios, { AxiosResponse } from 'axios';
 
 type Props = {
-
 }
 
 const SignUpPage:NextPage<Props> = (props) => {
@@ -24,7 +23,7 @@ const SignUpPage:NextPage<Props> = (props) => {
       'http://localhost:3001/api/signUp',
       formData
     ).then(() => {
-      alert('注册成功！')
+      alert('注册成功!')
     }, (error) => {
       if(error.response) {
         setErrors(error.response.data)
