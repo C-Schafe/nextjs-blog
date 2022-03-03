@@ -33,6 +33,7 @@ const SignUpPage:NextPage<Props> = (props) => {
   return (
     <div>
       <h1>注册页面</h1>
+      <input type="text" defaultValue={'default text'}/>
       <form onSubmit={onSubmit}>
         <div>
           {errors.username?.length > 0 && <div>{errors.username}</div>}

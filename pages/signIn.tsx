@@ -72,6 +72,7 @@ export default SignInPage;
 // @ts-ignore
 export const getServerSideProps:GetServerSideProps = withSession(async(context) => {
   // console.log(context.req.session);
+  console.log(process.env.SESSION_KEY)
   // @ts-ignore
   const user = context.req.session.get('user');
   console.log(user);

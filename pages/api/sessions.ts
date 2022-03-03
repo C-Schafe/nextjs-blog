@@ -2,7 +2,7 @@ import { NextApiHandler } from 'next';
 import { SignIn } from '../../src/model/signIn';
 import { withSession } from '../../lib/withSession';
 
-const signUp: NextApiHandler = async (request, response) => {
+const signUp: NextApiHandler = withSession(async (request, response) => {
   const { username, password } = request.body;
   const signInUser = new SignIn();
   signInUser.username = username;
@@ -20,6 +20,6 @@ const signUp: NextApiHandler = async (request, response) => {
     response.write(JSON.stringify(signInUser));
   }
   response.end();
-}
+})
 
-export default withSession(signUp);
+export default signUp;
