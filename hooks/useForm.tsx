@@ -32,7 +32,7 @@ export function useForm<T>(initFormData: T, onSubmit: (formData: T) => void, fie
       {fields.map((field) => {
         const { label, inputType, key } = field;
         return (
-          <div>
+          <div key={key.toString()}>
             {errors[key].length > 0 && <div>{errors[key].join(',')}</div>}
             <div>
               <label>{label}</label>

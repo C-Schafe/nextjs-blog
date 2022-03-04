@@ -28,7 +28,10 @@ const PostNewPage: NextPage = () => {
   const button = <button>提交</button>
   const { form } = useForm(initFormData, onSubmit, fields, button);
   return (
-    <div>{form}</div>
+    <div>
+      <h1>新建博客</h1>
+      {form}
+    </div>
   )
 }
 
