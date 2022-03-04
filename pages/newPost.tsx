@@ -7,7 +7,14 @@ const PostNewPage: NextPage = () => {
     axios.post(
       'http://localhost:3001/api/posts',
       formData
-    )
+    ).then(() => {
+      alert('提交成功');
+    }).catch((error) => {
+      if(error.response.status === 401) {
+        alert('请先登录');
+        window.location.href = `/signIn?${encodeURIComponent(`returnTo=${location.pathname}`)}`
+      }
+    })
   }
   const initFormData = {
     title: '',

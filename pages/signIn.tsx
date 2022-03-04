@@ -1,5 +1,6 @@
+import queryString from 'query-string';
 import { GetServerSideProps, NextPage } from "next";
-import React, { useCallback, useState } from "react";
+import React from "react";
 import axios from 'axios';
 import { withSession } from '../lib/withSession';
 import { useForm, fieldsOption } from '../hooks/useForm';
@@ -23,6 +24,7 @@ const SignInPage: NextPage<Props> = (props) => {
       formData
     ).then(() => {
       alert('登录成功');
+      location.href = queryString.parse(decodeURIComponent(location.search)).returnTo.toString();
     }, (error) => {
       setErrors(error.response.data)
     })
