@@ -9,6 +9,7 @@ const PostNewPage: NextPage = () => {
       formData
     ).then(() => {
       alert('提交成功');
+      window.location.href = '/posts'
     }).catch((error) => {
       if(error.response.status === 401) {
         alert('请先登录');
