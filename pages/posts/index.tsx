@@ -5,17 +5,23 @@ import { GetServerSideProps, NextPage } from "next";
 import { getDatabaseConnection } from '../../lib/getDatabaseConnection';
 import { Post } from "../../src/entity/Post";
 import { take } from "lodash";
+import { usePager } from '../../hooks/usePager';
 const queryString = require('query-string');
 
 type Props = {
   postsList: Post[];
   allCount: number;
   currentPage: string;
-  totalPage: string;
+  totalPage: number;
 }
 
 const PostsList:NextPage<Props> = (props) => {
   const { postsList, allCount, currentPage, totalPage } = props;
+  const { pager } = usePager({
+    allCount,
+    currentPage: parseInt(currentPage),
+    totalPage,
+  });
   return (
     <div>
       <h1>this is posts list:</h1>
@@ -35,6 +41,7 @@ const PostsList:NextPage<Props> = (props) => {
       <Link href={`/posts?page=${parseInt(currentPage) + 1}`}>
         <a>下一页</a>
       </Link>
+      {pager}
     </div>
   )
 }
@@ -42,7 +49,7 @@ const PostsList:NextPage<Props> = (props) => {
 export default PostsList;
 
 export const getServerSideProps:GetServerSideProps = async(context) => {
-  const perPageCount = 3;
+  const perPageCount = 1;
   const index = context.req.url.indexOf('?');
   let page = queryString.parse(context.req.url.substring(index)).page || 1;
   if(page <= 0) {
