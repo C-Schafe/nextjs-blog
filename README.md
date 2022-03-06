@@ -39,6 +39,15 @@ typeorm migration:revert
 // typeorm创建entity
 typeorm entity:create -n <entity name>
 ```
+
+## Docker命令
+```
+// 应用构建为docker镜像
+docker build . -t <your username>/node-web-app
+// 运行镜像
+docker run -p 49160:8080 -d <your username>/node-web-app
+```
+
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
