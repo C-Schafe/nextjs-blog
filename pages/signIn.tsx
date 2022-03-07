@@ -24,7 +24,10 @@ const SignInPage: NextPage<Props> = (props) => {
       formData
     ).then(() => {
       alert('登录成功');
-      location.href = queryString.parse(decodeURIComponent(location.search)).returnTo.toString();
+      const returnTo = queryString.parse(decodeURIComponent(location.search)).returnTo;
+      if (returnTo) {
+        location.href = returnTo?.toString();
+      }
     }, (error) => {
       setErrors(error.response.data)
     })
