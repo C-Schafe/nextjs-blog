@@ -5,16 +5,18 @@ import { useForm, fieldsOption } from "../hooks/useForm";
 const PostNewPage: NextPage = () => {
   const onSubmit = (formData:typeof initFormData) => {
     axios.post(
-      'http://localhost:3001/api/posts',
+      'http://localhost:3000/api/posts',
       formData
     ).then(() => {
       alert('提交成功');
       window.location.href = '/posts'
     }).catch((error) => {
-      if(error.response.status === 401) {
+      console.dir(error)
+      if(error.response?.status === 401) {
         alert('请先登录');
         window.location.href = `/signIn?${encodeURIComponent(`returnTo=${location.pathname}`)}`
       }
+      alert('提交失败，服务器繁忙');
     })
   }
   const initFormData = {

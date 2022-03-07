@@ -4,6 +4,7 @@ import { stringify } from "querystring";
 import { getDatabaseConnection } from "../../lib/getDatabaseConnection";
 import { getPostsNameList, getPostContent } from '../../lib/posts';
 import { Post } from "../../src/entity/Post";
+import { marked } from 'marked';
 
 type Props = {
   post: Post
@@ -11,15 +12,18 @@ type Props = {
 
 const PostPage: NextPage<Props> = (props) => {
   const { post } = props;
+  const html = marked.parse(post.content);
   return (
-    <div>
+    <div className={`post-detail markdown-body`}>
       <h1>{post.title}</h1>
-      <hr />
-      <article>{post.content}</article>
-      <hr />
-      <Link href={'/'}>
-        <a>Homepage</a>
-      </Link>
+      <article dangerouslySetInnerHTML={{__html: html}}/>
+      <style jsx>{`
+        .post-detail {
+          padding: 10px 20px 50px;
+          width: 80%;
+          margin: 0 auto;
+        }
+      `}</style>
     </div>
   )
 }

@@ -10,7 +10,7 @@ const SignUpPage: NextPage<Props> = (props) => {
   const onSubmit = (formData: typeof initFormData) => {
     console.log('提交注册信息');
     axios.post(
-      'http://localhost:3001/api/signUp',
+      'http://localhost:3000/api/signUp',
       formData
     ).then(() => {
       alert('注册成功!')

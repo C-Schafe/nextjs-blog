@@ -498,6 +498,11 @@
   resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
   integrity sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==
 
+"@types/marked@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.npmmirror.com/@types/marked/-/marked-4.0.2.tgz#cb2dbf10da2f41cf20bd91fb5f89b67540c282f7"
+  integrity sha512-auNrZ/c0w6wsM9DccwVxWHssrMDezHUAXNesdp2RQrCVCyrQbOiSq7yqdJKrUQQpw9VTm7CGYJH2A/YG7jjrjQ==
+
 "@types/md5@^2.3.2":
   version "2.3.2"
   resolved "https://registry.npmmirror.com/@types/md5/-/md5-2.3.2.tgz#529bb3f8a7e9e9f621094eb76a443f585d882528"
@@ -1435,6 +1440,11 @@ get-symbol-description@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.1"
 
+github-markdown-css@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmmirror.com/github-markdown-css/-/github-markdown-css-5.1.0.tgz#a96281cd90a8969e3c13b9d3ca6a733a523a00a6"
+  integrity sha512-QLtORwHHtUHhPMHu7i4GKfP6Vx5CWZn+NKQXe+cBhslY1HEt0CTEkP4d/vSROKV0iIJSpl4UtlQ16AD8C6lMug==
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmmirror.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
@@ -1849,6 +1859,11 @@ make-dir@^2.1.0:
   dependencies:
     pify "^4.0.1"
     semver "^5.6.0"
+
+marked@^4.0.12:
+  version "4.0.12"
+  resolved "https://registry.npmmirror.com/marked/-/marked-4.0.12.tgz#2262a4e6fd1afd2f13557726238b69a48b982f7d"
+  integrity sha512-hgibXWrEDNBWgGiK18j/4lkS6ihTe9sxtV4Q1OQppb/0zzyPSzoFANBa5MfsG/zgsWklmNnhm0XACZOH/0HBiQ==
 
 md5@^2.3.0:
   version "2.3.0"
