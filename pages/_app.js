@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>This the title for all pages.</title>
+        <title>我的博客 - JMY</title>
       </Head>
       <Component {...pageProps} />
     </>
