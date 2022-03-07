@@ -35,12 +35,22 @@ const PostNewPage: NextPage = () => {
       key: 'content',
     }
   ];
-  const button = <button>提交</button>
+  const button = <button className="submit-button">提交</button>
   const { form } = useForm(initFormData, onSubmit, fields, button);
   return (
-    <div>
+    <div className="new-post">
       <h1>新建博客</h1>
       {form}
+      <style jsx global>{`
+        .new-post {
+          padding: 15px 20px;
+        }
+        .submit-button {
+          position: relative;
+          left: 100%;
+          transform: translateX(-100%);
+        }
+      `}</style>
     </div>
   )
 }
