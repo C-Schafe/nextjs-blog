@@ -22,7 +22,7 @@ const PostPage: NextPage<Props> = (props) => {
   return (
     <div className={`post-detail markdown-body`}>
       <h1>{post.title}</h1>
-      {currentUser && <Link href={'/post/[id]/edit'} as={`/post/${id}/edit`}>
+      {currentUser && <Link href={'/posts/[id]/edit'} as={`/posts/${id}/edit`}>
         <a><span>编辑</span></a>
       </Link>}
       <article dangerouslySetInnerHTML={{__html: html}}/>
