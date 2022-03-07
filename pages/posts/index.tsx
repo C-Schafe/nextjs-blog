@@ -23,25 +23,31 @@ const PostsList:NextPage<Props> = (props) => {
     totalPage,
   });
   return (
-    <div>
-      <h1>this is posts list:</h1>
+    <div className="post-list">
+      <h1>文章列表</h1>
       {postsList.length > 0 && postsList.map((post) => {
         return (
           <Link key={post.id} href={`/posts/${post.id}`}>
-            <a><div>{post.title}</div></a>
+            <a><div className="post-link">{post.title}</div></a>
           </Link>
         );
       })}
       <br />
-      {`共 ${allCount} 篇博客，当前为第 ${currentPage} 页`} |
-      <Link href={`/posts?page=${parseInt(currentPage) - 1}`}>
-        <a>上一页</a>
-      </Link>
-      [{currentPage}/{totalPage}]
-      <Link href={`/posts?page=${parseInt(currentPage) + 1}`}>
-        <a>下一页</a>
-      </Link>
+      {/* {`共 ${allCount} 篇博客，当前为第 ${currentPage} 页`} */}
       {pager}
+      <style jsx>{`
+        .post-list {
+          width: 100%;
+          height: 100vh;
+          padding: 15px 20px;
+        }
+        .post-list a:hover {
+          color: #bbb;
+        }
+        .post-link {
+          margin: 10px 0;
+        }
+      `}</style>
     </div>
   )
 }
@@ -49,7 +55,7 @@ const PostsList:NextPage<Props> = (props) => {
 export default PostsList;
 
 export const getServerSideProps:GetServerSideProps = async(context) => {
-  const perPageCount = 1;
+  const perPageCount = 10;
   const index = context.req.url.indexOf('?');
   let page = queryString.parse(context.req.url.substring(index)).page || 1;
   if(page <= 0) {

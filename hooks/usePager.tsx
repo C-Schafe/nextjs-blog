@@ -27,7 +27,7 @@ export function usePager(option:pagerOption) {
   }, []);
   const pager = (
     <div>
-      {currentPage > 1 &&  <Link href={`/posts?page=${currentPage - 1}`}><a>上一页</a></Link>}
+      {currentPage > 1 &&  <Link href={`/posts?page=${currentPage - 1}`}><a className="pre">上一页</a></Link>}
       {targetedPageNum.map((pageNum) => {
         if(pageNum === -1) {
           return '...';
@@ -36,7 +36,15 @@ export function usePager(option:pagerOption) {
         }
       })}
       [{currentPage}/{totalPage}]
-      {currentPage < totalPage && <Link href={`/posts?page=${currentPage + 1}`}><a>下一页</a></Link>}
+      {currentPage < totalPage && <Link href={`/posts?page=${currentPage + 1}`}><a className="next">下一页</a></Link>}
+      <style jsx>{`
+        .pre {
+          margin-right: 5px;
+        }
+        .next {
+          margin-left: 5px;
+        }
+      `}</style>
     </div>
   )
   return {
