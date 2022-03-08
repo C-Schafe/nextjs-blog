@@ -23,7 +23,20 @@ const getPostsList: NextApiHandler = withSession(async (request, response) => {
       response.end();
     }
   }
-  
+  if(request.method === 'DELETE') {
+    const user = request.session.get('user');
+    if (user) {
+      const id = request.query.id;
+      const connection = await getDatabaseConnection();
+      const { manager } = connection;
+      const post = await manager.delete(Post, id);
+      response.statusCode = post.affected > 0 ? 200 : 400;
+      response.end();
+    } else {
+      response.statusCode = 401;
+      response.end();
+    }
+  }
 })
 
 export default getPostsList;
