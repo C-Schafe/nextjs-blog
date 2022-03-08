@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <Image src={imageAsset.src} height={200} width={190}></Image>
+        <Image src={imageAsset.src} alt='homepage-logo' height={200} width={190}></Image>
         <h1>JMY 的个人博客</h1>
         <p>我在青青草原吃草</p>
         <Link href="/posts">
