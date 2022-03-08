@@ -40,3 +40,4 @@ yarn-error.log*
 
 # database
 blog-data/
+ormconfig.json
