@@ -51,7 +51,7 @@ docker run -p 49160:8080 -d <your username>/node-web-app
 ## 部署
 ```
 // 手动部署
-docker run --name psql1 -v /home/blog/blog-data:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=123456 -d postgres:12.2
+docker run --name psql1 --network=host -v /home/blog/blog-data:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=123456 -d postgres:12.2
 git pull;
 yarn install --production=false //安装dev Dependencies依赖;
 yarn build;
