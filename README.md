@@ -48,6 +48,16 @@ docker build . -t <your username>/node-web-app
 docker run -p 49160:8080 -d <your username>/node-web-app
 ```
 
+## 部署
+```
+// 手动部署
+git pull;
+yarn install --production=false //安装dev Dependencies依赖;
+yarn build;
+docker build . -t jiang/node-web-app;
+docker run --network=host -p 3000:3000 -d jiang/node-web-app
+```
+
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
