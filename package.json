@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev\" \"rm -rf dist\" \"babel -w ./src --out-dir dist --extensions .ts,.tsx\"",
+    "migration:build": "babel ./src --out-dir dist --extensions .ts,.tsx",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
