@@ -1,0 +1,28 @@
+diff --git a/src/entity/User.ts b/src/entity/User.ts
+index a34c1e6..4ffdc9d 100644
+--- a/src/entity/User.ts
++++ b/src/entity/User.ts
+@@ -1,5 +1,5 @@
+ import {BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+-import { getDatabaseConnection } from "../../lib/getDatabaseConnection";
++// import { getDatabaseConnection } from "../../lib/getDatabaseConnection";
+ import { Comment } from "./Comment";
+ import { Post } from "./Post";
+ import md5 from 'md5';
+@@ -45,11 +45,11 @@ export class User {
+       this.errors.confirmedPassword.push('密码不匹配');
+     }
+     // 检查数据库是否有重复用户
+-    const connection = await getDatabaseConnection();
+-    const user = await connection.manager.findOne(User, {where: {username: this.username}});
+-    if(user) {
+-      this.errors.username.push('用户已存在')
+-    }
++    // const connection = await getDatabaseConnection();
++    // const user = await connection.manager.findOne(User, {where: {username: this.username}});
++    // if(user) {
++    //   this.errors.username.push('用户已存在')
++    // }
+   }
+   hasErrors() {
+     return Object.values(this.errors).find(error => error.length > 0);
