@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import '../styles/globals.css';
 import 'github-markdown-css';
+import { ErrorBoundary } from '../pages/error/errorBoundary';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>我的博客 - JMY</title>
       </Head>
-      <Component {...pageProps} />
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
     </>
   )
 }
