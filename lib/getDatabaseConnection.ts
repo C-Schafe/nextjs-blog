@@ -16,25 +16,18 @@ const create = () => {
 };
 
 export const getDatabaseConnection = async () => {
+  // TODO 生产环境避免重复创建connection
   const manager = getConnectionManager();
-  if (process.env.NODE_ENV === 'production') {
-    try {
-      return manager.get();
-    } catch (error) {
-      return create();
+  try {
+    const connection = manager.get();
+    if(connection) {
+      await connection.close();
     }
-  } else {
-    try {
-      const connection = manager.get();
-      if(connection) {
-        await connection.close();
-      }
-      return create();
-    } catch (error) {
-      return create();
-    }
+    return create();
+  } catch (error) {
+    return create();
   }
-};
+}
 
 // const create = () => {
 //   // @ts-ignore
