@@ -19,7 +19,7 @@ const signUp:NextApiHandler = async(request, response) => {
     response.write(JSON.stringify(newUser.getErrors()));
   } else {
     // 通过检查，存储用户信息
-    connection.manager.save(newUser);
+    await connection.manager.save(newUser);
     response.write(JSON.stringify(newUser));
     response.statusCode = 200;
   }

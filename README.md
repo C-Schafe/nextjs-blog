@@ -1,5 +1,38 @@
 # 初始代码
 
+## 初次运行
+1. 新建 blog-data 作为数据库文件夹(如果本地已有，可删除重新创建)
+2. 启动docker容器并安装postgres
+```
+// 数据库无密码
+docker run -v "$PWD/blog-data":/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=blog -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres:12.2
+
+// 数据库设置设置密码
+docker run -v "$PWD/blog-data":/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=123456 -d postgres:12.2
+```
+3. 进入数据库并创建开发环境数据库
+```
+// 进入docker容器
+docker exec -it <contianer name> /bin/bash
+
+// 进入postgres
+psql -U <username>
+
+// 创建blog_development数据库供开发环境使用
+CREATE DATABASE blog_development ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYPE 'en_US.utf8';
+CREATE DATABASE blog_production ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYPE 'en_US.utf8';
+```
+4. 创建数据表
+```
+git apply migration.patch
+yarn migration:build
+yarn m:run
+```
+5. 启动应用
+`yarn dev`
+
+
+
 ## 启动数据库
 ```
 // 启动docker容器并安装postgres，无密码

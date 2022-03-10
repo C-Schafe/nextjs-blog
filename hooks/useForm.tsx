@@ -33,7 +33,7 @@ export function useForm<T>(initFormData: T, onSubmit: (formData: T) => void, fie
         const { label, inputType, key } = field;
         return (
           <div key={key.toString()}>
-            {errors[key].length > 0 && <div>{errors[key].join(',')}</div>}
+            {errors[key]?.length > 0 && <div>{errors[key].join(',')}</div>}
             <div className='edit-row'>
               <label className='label'>{label}</label>
               {inputType === 'textarea'
