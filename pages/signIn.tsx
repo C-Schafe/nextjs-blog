@@ -4,6 +4,7 @@ import React from "react";
 import axios from 'axios';
 import { withSession } from '../lib/withSession';
 import { useForm, fieldsOption } from '../hooks/useForm';
+import Link from 'next/link';
 
 type Props = {
   loginUser: UserInfo
@@ -55,6 +56,10 @@ const SignInPage: NextPage<Props> = (props) => {
       <h1>登录页面</h1>
       {props.loginUser && <div>当前登录的用户为: {props.loginUser.username}</div>}
       {form}
+      <br />
+      <Link href="/">
+        <a>返回首页</a>
+      </Link>
     </div>
   )
 }

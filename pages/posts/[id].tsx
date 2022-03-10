@@ -34,12 +34,17 @@ const PostPage: NextPage<Props> = (props) => {
   return (
     <div className={`post-detail markdown-body`}>
       <h1>{post.title}</h1>
-      {currentUser && <div className="actions">
+      <div>
+        <Link href="/posts">
+          <a>返回博客列表 </a>
+        </Link>
+        {currentUser && <div className="actions">
         <Link href={'/posts/[id]/edit'} as={`/posts/${id}/edit`}>
           <a><span>编辑</span></a>
         </Link>
         <a><span className="detele-button" onClick={onRemove}>删除</span></a>
       </div>}
+      </div>
       <article dangerouslySetInnerHTML={{ __html: html }} />
       <style jsx>{`
         .post-detail {

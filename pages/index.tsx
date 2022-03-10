@@ -16,7 +16,22 @@ export default function Home() {
         <Link href="/posts">
           <a><u>博客列表</u></a>
         </Link>
+        <div className='authorization'>
+          <Link href="/signUp">
+            <a>注册 </a>
+          </Link>
+          <Link href="/signIn">
+            <a>登录</a>
+          </Link>
+        </div>
       </main>
+      <style jsx>{`
+        .authorization {
+          position: fixed;
+          right: 30px;
+          top: 15px;
+        }
+      `}</style>
     </div>
   )
 }

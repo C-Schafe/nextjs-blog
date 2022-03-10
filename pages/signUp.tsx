@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import React, { useCallback, useState } from "react";
 import axios, { AxiosResponse } from 'axios';
 import { useForm, fieldsOption } from '../hooks/useForm';
+import Link from "next/link";
 
 type Props = {
 }
@@ -49,6 +50,10 @@ const SignUpPage: NextPage<Props> = (props) => {
       <h1>注册页面</h1>
       <input type="text" defaultValue={'default text'} />
       {form}
+      <br />
+      <Link href="/">
+        <a>返回首页</a>
+      </Link>
     </div>
   );
 }

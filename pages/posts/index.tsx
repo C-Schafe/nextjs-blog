@@ -43,6 +43,10 @@ const PostsList: NextPage<Props> = (props) => {
       <br />
       {/* {`共 ${allCount} 篇博客，当前为第 ${currentPage} 页`} */}
       {pager}
+      <br />
+      <Link href="/">
+        <a>返回首页</a>
+      </Link>
       <style jsx>{`
         .header {
           display: flex;
