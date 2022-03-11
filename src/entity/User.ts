@@ -23,9 +23,9 @@ export class User {
   createdAt: Date
   @UpdateDateColumn()
   updatedAt: Date
-  @OneToMany(() => Post, post => post.author)
+  @OneToMany('Post', 'author')
   posts: Post[]
-  @OneToMany(() => Comment, comment => comment.user)
+  @OneToMany('Comment', 'user')
   comments: Comment[]
   password: string
   confirmedPassword: string

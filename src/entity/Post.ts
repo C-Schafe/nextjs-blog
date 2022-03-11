@@ -10,9 +10,9 @@ export class Post {
   title: string
   @Column('text')
   content: string
-  @ManyToOne(() => User, user => user.posts)
+  @ManyToOne('User', 'posts')
   author: User
-  @OneToMany(() => Comment, comment => comment.post)
+  @OneToMany('Comment', 'post')
   comments: Comment[]
   @CreateDateColumn()
   createdAt: Date
