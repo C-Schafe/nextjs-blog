@@ -48,7 +48,6 @@ const SignUpPage: NextPage<Props> = (props) => {
   return (
     <div>
       <h1>注册页面</h1>
-      <input type="text" defaultValue={'default text'} />
       {form}
       <br />
       <Link href="/">
