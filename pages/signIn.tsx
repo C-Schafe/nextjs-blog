@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import qs from 'querystring';
 import { GetServerSideProps, NextPage } from "next";
 import React from "react";
 import axios from 'axios';
@@ -25,7 +25,7 @@ const SignInPage: NextPage<Props> = (props) => {
       formData
     ).then(() => {
       alert('登录成功');
-      const returnTo = queryString.parse(decodeURIComponent(location.search)).returnTo;
+      const returnTo = qs.parse(decodeURIComponent(location.search)).returnTo;
       if (returnTo) {
         location.href = returnTo?.toString();
       }

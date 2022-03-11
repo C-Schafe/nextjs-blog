@@ -26,7 +26,7 @@ export function useForm<T>(initFormData: T, onSubmit: (formData: T) => void, fie
   const _onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(formData);
-  }, [onSubmit]);
+  }, [onSubmit, formData]);
   const form = (
     <form className='form' onSubmit={_onSubmit}>
       {fields.map((field) => {

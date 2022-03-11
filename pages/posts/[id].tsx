@@ -4,7 +4,7 @@ import { stringify } from "querystring";
 import { getDatabaseConnection } from "../../lib/getDatabaseConnection";
 import { getPostsNameList, getPostContent } from '../../lib/posts';
 import { Post } from "../../src/entity/Post";
-import { marked } from 'marked';
+import marked from 'marked';
 import { withSession } from "../../lib/withSession";
 import { User } from "../../src/entity/User";
 import { useCallback } from "react";
