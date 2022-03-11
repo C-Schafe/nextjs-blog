@@ -67,7 +67,10 @@ export function useForm<T>(initFormData: T, onSubmit: (formData: T) => void, fie
           height: 60vh;
         }
         .edit-row .label {
+          display: inline-flex;
+          width: 4em;
           margin-right: 1em;
+          
         }
       `}</style>
     </form>
