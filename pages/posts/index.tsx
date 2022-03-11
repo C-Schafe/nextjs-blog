@@ -8,6 +8,7 @@ import { take } from "lodash";
 import { usePager } from '../../hooks/usePager';
 import { withSession } from "../../lib/withSession";
 import { User } from "../../src/entity/User";
+import { createConnection } from "typeorm";
 const queryString = require('query-string');
 
 type Props = {
@@ -41,7 +42,6 @@ const PostsList: NextPage<Props> = (props) => {
         );
       })}
       <br />
-      {/* {`共 ${allCount} 篇博客，当前为第 ${currentPage} 页`} */}
       {pager}
       <br />
       <Link href="/">
