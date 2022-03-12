@@ -81,6 +81,11 @@ docker build . -t <your username>/node-web-app
 docker run -p 49160:8080 -d <your username>/node-web-app
 ```
 
+## nginx
+```
+docker run --name=nginx1 --network=host -v /home/blog/nginx.conf:/etc/nginx/conf.d/default.conf -v /home/blog/app/.next/static/:/usr/share/nginx/html/_next/static/ -d nginx:1.19.1
+```
+
 ## 部署
 ```
 // 手动部署
@@ -91,8 +96,10 @@ yarn build;
 docker build . -t jiang/node-web-app;
 docker run --network=host -p 3000:3000 -d jiang/node-web-app
 docker run -p 3000:3000 -d jiang/node-web-app
+
 // 一键部署
-ssh blog@alidev1 "sh /home/blog/app/bin/deploy.sh"
+// 
+ssh blog@alidev1 'bash -s' < bin/deploy.sh
 ```
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
