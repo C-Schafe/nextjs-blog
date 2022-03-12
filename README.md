@@ -90,6 +90,7 @@ yarn install --production=false //安装dev Dependencies依赖;
 yarn build;
 docker build . -t jiang/node-web-app;
 docker run --network=host -p 3000:3000 -d jiang/node-web-app
+docker run -p 3000:3000 -d jiang/node-web-app
 // 一键部署
 ssh blog@alidev1 "sh /home/blog/app/bin/deploy.sh"
 ```
