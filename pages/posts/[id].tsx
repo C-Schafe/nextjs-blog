@@ -21,7 +21,7 @@ const PostPage: NextPage<Props> = (props) => {
   const html = marked.parse(post.content);
   const onRemove = useCallback(() => {
     console.log('delete');
-    axios.delete(`http://localhost:3000/api/posts/${id}`).then(
+    axios.delete(`/api/posts/${id}`).then(
       () => {
         alert('删除成功!');
         location.href = '/posts';

@@ -5,7 +5,7 @@ import { useForm, fieldsOption } from "../hooks/useForm";
 const PostNewPage: NextPage = () => {
   const onSubmit = (formData:typeof initFormData) => {
     axios.post(
-      'http://localhost:3000/api/posts',
+      '/api/posts',
       formData
     ).then(() => {
       alert('提交成功');

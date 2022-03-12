@@ -13,7 +13,7 @@ const EditPostPage: NextPage<Props> = (props) => {
   const { id, post } = props;
   const onSubmit = (formData:typeof initFormData) => {
     axios.patch(
-      `http://localhost:3000/api/posts/${id}`,
+      `/api/posts/${id}`,
       {
         ...formData,
         id

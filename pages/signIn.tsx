@@ -21,7 +21,7 @@ interface UserInfo {
 const SignInPage: NextPage<Props> = (props) => {
   const onSubmit = (formData: typeof initFormData) => {
     axios.post(
-      'http://localhost:3000/api/sessions',
+      '/api/sessions',
       formData
     ).then(() => {
       alert('登录成功');
