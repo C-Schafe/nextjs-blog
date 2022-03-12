@@ -36,7 +36,7 @@ const PostsList: NextPage<Props> = (props) => {
       </div>
       {postsList.length > 0 && postsList.map((post) => {
         return (
-          <Link key={post.id} href={`/posts/${post.id}`}>
+          <Link key={post.id} href={'/posts/[id]'} as={`/posts/${post.id}`}>
             <a><div className="post-link">{post.title}</div></a>
           </Link>
         );
