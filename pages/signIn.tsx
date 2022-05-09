@@ -54,7 +54,6 @@ const SignInPage: NextPage<Props> = (props) => {
   return (
     <div className='sign-in-page'>
       <h1>登录</h1>
-      {props.loginUser && <div>当前登录的用户为: {props.loginUser.username}</div>}
       {form}
       <br />
       <Link href="/">
