@@ -49,7 +49,7 @@ const PostPage: NextPage<Props> = (props) => {
       <style jsx>{`
         .post-detail {
           padding: 10px 20px 50px;
-          width: 80%;
+          width: 800px;
           margin: 0 auto;
         }
         .actions {

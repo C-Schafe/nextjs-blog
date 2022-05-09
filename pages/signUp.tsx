@@ -46,13 +46,20 @@ const SignUpPage: NextPage<Props> = (props) => {
   const button = <button>注册</button>
   const { form, setErrors } = useForm(initFormData, onSubmit, fields, button);
   return (
-    <div>
-      <h1>注册页面</h1>
+    <div className="sign-up-page">
+      <h1>注册</h1>
       {form}
       <br />
       <Link href="/">
         <a>返回首页</a>
       </Link>
+      <style jsx>{`
+        .sign-up-page {
+          height: 50vw;
+          width: 25vw;
+          margin: 0 auto;
+        }
+      `}</style>
     </div>
   );
 }

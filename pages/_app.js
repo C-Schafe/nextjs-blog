@@ -7,9 +7,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>我的博客 - JMY</title>
+        <title>我的博客/louischiang</title>
       </Head>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
     </>
   )
 }

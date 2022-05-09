@@ -5,14 +5,17 @@ export default function Home() {
   return (
     <div >
       <main className='homepage'>
-        <img src={require('../assets/image/sheep_baw.png')}/>
-        <h1>JMY 的个人博客</h1>
-        <p>我在青青草原吃草</p>
-        <p>我在青青草原奔跑</p>
-        <p>我在青青草原晒太阳</p>
-        <Link href="/posts">
-          <a><u>博客列表</u></a>
-        </Link>
+        <div className='intro'>
+            <div className='avatar'>
+              <p className='name'>LouisChiang / <span>Blog</span></p>
+              <img src={require('../assets/image/sheep_line.jpg')}/>
+            </div>
+            <p className='slogan en'>Thinking and recording.</p>
+            <p className='slogan ch'>写点东西的地方。</p>
+            <Link href="/posts">
+              <a><u>博客列表</u></a>
+            </Link>
+        </div>
         <div className='authorization'>
           <Link href="/signUp">
             <a>注册 </a>
@@ -31,6 +34,37 @@ export default function Home() {
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
+        }
+        .intro {
+          display: flex;
+          flex-direction: column;
+          height: 66%;
+          width: 80vw;
+          margin: 0 auto;
+        }
+        .intro .slogan {
+          font-size: 2vw;
+          color: #757C85;
+          margin-top: 0;
+        }
+        .intro a {
+          color: #757C85;
+        }
+        .avatar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .avatar img {
+          height: 16vw;
+          border-radius: 3vw;
+        }
+        .avatar .name{
+          font-size: 5vw;
+          font-weight: 300;
+        }
+        .avatar .name span {
+          font-weight: bold;
         }
         .authorization {
           position: fixed;

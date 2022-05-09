@@ -52,14 +52,21 @@ const SignInPage: NextPage<Props> = (props) => {
   const button = <button>登录</button>
   const { form, setErrors } = useForm(initFormData, onSubmit, fields, button);
   return (
-    <div>
-      <h1>登录页面</h1>
+    <div className='sign-in-page'>
+      <h1>登录</h1>
       {props.loginUser && <div>当前登录的用户为: {props.loginUser.username}</div>}
       {form}
       <br />
       <Link href="/">
         <a>返回首页</a>
       </Link>
+      <style jsx>{`
+        .sign-in-page {
+          height: 50vw;
+          width: 25vw;
+          margin: 0 auto;
+        }
+      `}</style>
     </div>
   )
 }

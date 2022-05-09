@@ -36,9 +36,17 @@ const PostsList: NextPage<Props> = (props) => {
       </div>
       {postsList.length > 0 && postsList.map((post) => {
         return (
-          <Link key={post.id} href={'/posts/[id]'} as={`/posts/${post.id}`}>
-            <a><div className="post-link">{post.title}</div></a>
-          </Link>
+          <div className="post-item">
+            <h2>
+              <Link key={post.id} href={'/posts/[id]'} as={`/posts/${post.id}`}>
+                <a><div className="post-link">{post.title}</div></a>
+              </Link>
+            </h2>
+            <p className="intro">{post.content.substring(0, 100)}</p>
+            <Link key={post.id} href={'/posts/[id]'} as={`/posts/${post.id}`}>
+              <a className="more">阅读更多</a>
+            </Link>
+          </div>
         );
       })}
       <br />
@@ -54,12 +62,34 @@ const PostsList: NextPage<Props> = (props) => {
           justify-content: space-between;
         }
         .post-list {
-          width: 100%;
+          width: 800px;
           height: 100vh;
           padding: 15px 20px;
+          margin: 0 auto;
+        }
+        .post-list a {
+          transition: 0.1s;
         }
         .post-list a:hover {
-          color: #bbb;
+          color: #898888;
+        }
+        .post-list .post-item {
+          border-bottom: 1px solid grey;
+          padding-bottom: 1.5em;
+          color: #39454e;
+        }
+        .post-list .post-item .intro {
+          font-size: 16px;
+          margin-bottom: 1em;
+        }
+        .post-list .post-item .more {
+          display: inline-block;
+          padding-bottom: 0.1em;
+          border-bottom: 1px solid transparent;
+        }
+        .post-list .post-item .more:hover {
+          color: #898888;
+          border-bottom: 1px solid #bbb;
         }
         .post-link {
           margin: 10px 0;
