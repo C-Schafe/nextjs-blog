@@ -113,6 +113,9 @@ export const getServerSideProps: GetServerSideProps = withSession(async (context
   }
   const connection = await getDatabaseConnection();
   const postsListResult = await connection.manager.findAndCount(Post, {
+    order: {
+      createdAt: 'DESC',
+    },
     skip: (page - 1) * perPageCount,
     take: perPageCount,
   });
