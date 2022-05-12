@@ -99,6 +99,6 @@ docker run --network=host -p 3000:3000 -d jiang/node-web-app
 docker run -p 3000:3000 -d jiang/node-web-app
 
 // 一键部署
-// 
-ssh blog@alidev1 'bash -s' < bin/deploy.sh
+// <server>替换为服务器登录账户
+ssh <server> 'bash -s' < bin/deploy.sh
 ```
