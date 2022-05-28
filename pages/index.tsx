@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import Link from 'next/link';
 
 export default function Home() {
+  const forbidSignUp = useCallback(() => {
+    alert('注册暂不可用');
+  }, []);
   return (
     <div >
       <main className='homepage'>
@@ -17,9 +20,7 @@ export default function Home() {
             </Link>
         </div>
         <div className='authorization'>
-          <Link href="/signUp">
-            <a>注册 </a>
-          </Link>
+          <a href="#" onClick={forbidSignUp}>注册 </a>
           <Link href="/signIn">
             <a>登录</a>
           </Link>

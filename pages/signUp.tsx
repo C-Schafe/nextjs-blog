@@ -9,7 +9,6 @@ type Props = {
 
 const SignUpPage: NextPage<Props> = (props) => {
   const onSubmit = (formData: typeof initFormData) => {
-    console.log('提交注册信息');
     axios.post(
       '/api/signUp',
       formData
